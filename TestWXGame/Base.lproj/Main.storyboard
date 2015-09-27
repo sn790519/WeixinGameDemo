@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XvT-ah-V5L">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--游戏-->
+        <scene sceneID="2Av-eu-Rqj">
+            <objects>
+                <tableViewController id="b0e-L3-xvb" customClass="ViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2MO-Y4-bj9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="游戏和攻略" id="MPL-bY-6ew">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="5tH-wq-Lpy" style="IBUITableViewCellStyleDefault" id="Adm-Yk-m1S">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Adm-Yk-m1S" id="J2A-K3-QlB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BasicCell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5tH-wq-Lpy">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b0e-L3-xvb" id="hkj-tH-150"/>
+                            <outlet property="delegate" destination="b0e-L3-xvb" id="gTb-9h-IYX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="游戏" id="iHr-Kw-78w">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="qtm-g9-I7R">
+                            <connections>
+                                <action selector="refreshTips:" destination="b0e-L3-xvb" id="7Kn-wV-p2A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="xCj-yH-Cc1" kind="push" identifier="Index2WebView" id="skz-HO-uN5"/>
+                        <segue destination="wWm-Gz-Nau" kind="push" identifier="Index2GameList" id="HA7-Io-7ad"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdY-sx-Jo9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="274"/>
+        </scene>
+        <!--精品游戏-->
+        <scene sceneID="8hK-wW-oFS">
+            <objects>
+                <tableViewController id="wWm-Gz-Nau" customClass="GameListTableVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8g4-8X-SSC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="wWm-Gz-Nau" id="7kZ-UK-n6t"/>
+                            <outlet property="delegate" destination="wWm-Gz-Nau" id="Zse-hR-Nyu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="精品游戏" id="JOb-I3-bKb"/>
+                    <connections>
+                        <segue destination="xCj-yH-Cc1" kind="push" identifier="GameList2WebView" id="Pm6-cf-BTA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="stj-Aw-ExA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911" y="564"/>
+        </scene>
+        <!--WebView-->
+        <scene sceneID="wDQ-Sv-9BN">
+            <objects>
+                <viewController id="xCj-yH-Cc1" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SDG-45-3So"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sqf-oA-PG8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KaL-kM-g5A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="da9-YO-1Br">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WebView" id="Fco-yG-1ZA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5y2-2Y-dus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1343" y="-51"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qQF-rX-9gs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XvT-ah-V5L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SA8-j0-Uiz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b0e-L3-xvb" kind="relationship" relationship="rootViewController" id="ZEL-Oq-CKw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffE-oq-nh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="264"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pm6-cf-BTA"/>
+    </inferredMetricsTieBreakers>
+</document>
